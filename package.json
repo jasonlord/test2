@@ -1,0 +1,17 @@
+{
+  "name": "map-pin-app",
+  "version": "1.0.0",
+  "description": "A collaborative map where users can drop pins for others to find",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step needed'",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^7.3.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}
+
