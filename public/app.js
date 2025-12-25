@@ -1,5 +1,11 @@
 // Initialize the map
-const map = L.map('map').setView([40.7128, -74.0060], 4); // Default view: USA
+const map = L.map('map', {
+    worldCopyJump: true, // Jump to the real world copy when panning
+    maxBounds: [[-90, -180], [90, 180]], // Limit to one world
+    maxBoundsViscosity: 1.0, // Stronger resistance at edges
+    minZoom: 3, // Tighter minimum zoom - can't see outside the world
+    maxZoom: 19 // Maximum zoom level
+}).setView([40.7128, -74.0060], 4); // Default view: USA
 
 // Mapbox access token
 const mapboxToken = 'pk.eyJ1IjoiamFzb25sb3JkODQiLCJhIjoiY21qa3FlZWVpMGUzdzNmcHY2d2d1ejY2dCJ9.vWiLbqQ0umwGGnpeS7U96Q';
@@ -11,7 +17,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     maxZoom: 19,
     zoomOffset: -1,
     id: 'jasonlord84/cmdra3zcw000h01r17km26edi', // Your custom Mapbox style
-    accessToken: mapboxToken
+    accessToken: mapboxToken,
+    noWrap: true // Prevent tiles from repeating horizontally
 }).addTo(map);
 
 // Store for pins and temporary pin location
